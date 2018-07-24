@@ -11,6 +11,10 @@ const ratedShows = showsObj.shows.map(show =>
   Object.assign({ rating: `${Math.floor(Math.random() * 9)}.${Math.floor(Math.random() * 9)}` }, show)
 );
 
+app.get('/', (req, res) => {
+  res.send('Hello').status(200);
+});
+
 app.get('/:id', (req, res) => {
   const show = ratedShows.find(item => item.imdbID === req.params.id);
   if (show) {
